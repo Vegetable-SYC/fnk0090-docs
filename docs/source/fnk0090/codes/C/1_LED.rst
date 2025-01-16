@@ -2,7 +2,7 @@
 Chapter LED
 ##############################################################################
 
-This chapter is the Start Point in the journey to build and explore ESP32 electronic projects. We will start with simple “Blink” project.
+This chapter is the Start Point in the journey to build and explore ESP32 electronic projects. We will start with simple "Blink" project.
 
 Project 1.1 Blink
 ************************************
@@ -54,7 +54,7 @@ Select the serial port.
 
 .. note:: 
     
-    For macOS users, if the uploading fails, please set the baud rate to 115200 before clicking “Upload Using Programmer”.
+    For macOS users, if the uploading fails, please set the baud rate to 115200 before clicking "Upload Using Programmer".
 
 .. image:: ../_static/imgs/1_LED/Chapter01_03.png
     :align: center
@@ -65,7 +65,7 @@ Sketch_01.1_Blink
 .. image:: ../_static/imgs/1_LED/Chapter01_04.png
     :align: center
 
-Click “Upload”, Download the code to ESP32-WROOM and your LED in the circuit starts Blink.
+Click "Upload", Download the code to ESP32-WROOM and your LED in the circuit starts Blink.
 
 .. image:: ../_static/imgs/1_LED/Chapter01_05.png
     :align: center

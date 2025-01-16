@@ -34,12 +34,12 @@ The first way, open the Arduino IDE, click Tools -> Manager Libraries.
 .. image:: ../_static/imgs/2_WS2812/Chapter02_00.png
     :align: center
 
-In the pop-up window, Library Manager, search for the name of the Library, “Freenove WS2812 Lib for ESP32”. Then click Install.
+In the pop-up window, Library Manager, search for the name of the Library, "Freenove WS2812 Lib for ESP32". Then click Install.
 
 .. image:: ../_static/imgs/2_WS2812/Chapter02_01.png
     :align: center
 
-The second way, open Arduino IDE, click SketchInclude LibraryAdd .ZIP Library, In the pop-up window, find the file named “./Libraries/Freenove_WS2812_Lib_for_ESP32.Zip” which locates in this directory, and click OPEN.
+The second way, open Arduino IDE, click SketchInclude LibraryAdd .ZIP Library, In the pop-up window, find the file named "./Libraries/Freenove_WS2812_Lib_for_ESP32.Zip" which locates in this directory, and click OPEN.
 
 .. image:: ../_static/imgs/2_WS2812/Chapter02_02.png
     :align: center
@@ -102,7 +102,7 @@ Initialize strip() in setup() and set the brightness.
     :lines: 20-21
     :dedent:
 
-In the loop(), there are two “for” loops, the internal for loop to light the LED one by one, and the external for loop to switch colors. strip.setLedColorData() is used to set the color, but it does not change immediately. Only when strip.show() is called will the color data be sent to the LED to change the color.
+In the loop(), there are two "for" loops, the internal for loop to light the LED one by one, and the external for loop to switch colors. strip.setLedColorData() is used to set the color, but it does not change immediately. Only when strip.show() is called will the color data be sent to the LED to change the color.
 
 .. literalinclude:: ../../../freenove_Kit/C/Sketches/Sketch_02.1_WS2812/Sketch_02.1_WS2812.ino
     :linenos: 
@@ -117,7 +117,7 @@ Reference
     
     Constructor to create a Ws2812 object.
     
-    Before each use of the constructor, please add “ **#include "Freenove_WS2812_Lib_for_ESP32.h** ”
+    Before each use of the constructor, please add " **#include "Freenove_WS2812_Lib_for_ESP32.h** "
     
     **Parameters**
     

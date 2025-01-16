@@ -76,7 +76,7 @@ Install ControlP5.
 .. image:: ../_static/imgs/5_TCP_IP/Chapter05_05.png
     :align: center
 
-Open the “ **Freenove_ESP32_WROOM_Board\Sketches\Sketches\Sketch_05.1_WiFiClient\sketchWiFi\sketchWiFi.pde** ”, and click "Run".
+Open the " **Freenove_ESP32_WROOM_Board\Sketches\Sketches\Sketch_05.1_WiFiClient\sketchWiFi\sketchWiFi.pde** ", and click "Run".
 
 .. image:: ../_static/imgs/5_TCP_IP/Chapter05_06.png
     :align: center
@@ -126,7 +126,7 @@ Connect Freenove ESP32 to the computer using the USB cable.
 Sketch
 ===================================
 
-Before running the Sketch, please open “sketchWiFi.pde.” first, and click “Run”.
+Before running the Sketch, please open "sketchWiFi.pde." first, and click "Run".
 
 .. image:: ../_static/imgs/5_TCP_IP/Chapter05_09.png
     :align: center
@@ -141,7 +141,7 @@ Next, open Sketch_05.1_WiFiClient.ino. Before running it, please change the foll
 .. image:: ../_static/imgs/5_TCP_IP/Chapter05_11.png
     :align: center
 
-REMOTE_IP needs to be filled in according to the interface of sketchWiFi.pde. Taking this tutorial as an example, its REMOTE_IP is “192.168.1.80”. Generally, by default, the ports do not need to change its value.
+REMOTE_IP needs to be filled in according to the interface of sketchWiFi.pde. Taking this tutorial as an example, its REMOTE_IP is "192.168.1.80". Generally, by default, the ports do not need to change its value.
 
 Click LISTENING, turn on TCP SERVER's data listening function and wait for ESP32 to connect.
 
@@ -303,7 +303,7 @@ Serial Monitor
 
 Processing:
 
-Open the “ **Freenove_ESP32_WROOM_Board\Sketches\Sketches\Sketch_05.2_WiFiServer\sketchWiFi\sketchWiFi.pde** ”.
+Open the " **Freenove_ESP32_WROOM_Board\Sketches\Sketches\Sketch_05.2_WiFiServer\sketchWiFi\sketchWiFi.pde** ".
 
 Based on the messages printed by the serial monitor, enter correct IP address and IP port in Processing to establish connection and make communication.
 

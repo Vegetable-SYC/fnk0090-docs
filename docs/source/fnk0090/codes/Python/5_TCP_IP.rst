@@ -76,7 +76,7 @@ Install ControlP5.
 .. image:: ../_static/imgs/5_TCP_IP/Chapter05_05.png
     :align: center
 
-Open the “ **Freenove_ESP32_WROOM_Board\Sketches\Sketches\Sketch_05.1_WiFiClient\sketchWiFi\sketchWiFi.pde** ”, and click "Run".
+Open the " **Freenove_ESP32_WROOM_Board\Sketches\Sketches\Sketch_05.1_WiFiClient\sketchWiFi\sketchWiFi.pde** ", and click "Run".
 
 .. image:: ../_static/imgs/5_TCP_IP/Chapter05_06.png
     :align: center
@@ -123,133 +123,149 @@ Connect Freenove ESP32 to the computer using the USB cable.
 .. image:: ../_static/imgs/Preface/Preface09.png
     :align: center
 
-Sketch
-===================================
+Code
+=============================
 
-Before running the Sketch, please open “sketchWiFi.pde.” first, and click “Run”.
+Before running the Code, please open “sketchWiFi.pde.” first, and click “Run”.
 
-.. image:: ../_static/imgs/5_TCP_IP/Chapter05_09.png
+.. image:: ../_static/imgs/5_TCP_IP/Chapter05_18.png
     :align: center
 
-The newly pop up window will use the computer's IP address by default and open a data monitor port.
+The newly pop up window will use the computer's IP address by default and open a data monitor port. Click“Listening”。
 
-.. image:: ../_static/imgs/5_TCP_IP/Chapter05_10.png
+.. image:: ../_static/imgs/5_TCP_IP/Chapter05_19.png
     :align: center
 
-Next, open Sketch_05.1_WiFiClient.ino. Before running it, please change the following information based on "LOCAL IP" and "LOCAL PORT" in the figure above. 
+Move the program folder “Freenove_ESP32_WROOM_Board/Python/Python_Codes” to disk(D) in advance with the path of “D:/Micropython_Codes”.
 
-.. image:: ../_static/imgs/5_TCP_IP/Chapter05_11.png
+Open “Thonny”, click “This computer”  “D:”  “Micropython_Codes”  “05.1_TCP_as_Client” and double click “TCP_as_Client.py”. 
+
+Before clicking “Run current script”, please modify the name and password of your router and fill in the “host” and “port” according to the IP information shown in the box below:
+
+05.1_TCP_as_Client
+--------------------------------
+
+.. image:: ../_static/imgs/5_TCP_IP/Chapter05_20.png
     :align: center
 
-REMOTE_IP needs to be filled in according to the interface of sketchWiFi.pde. Taking this tutorial as an example, its REMOTE_IP is “192.168.1.80”. Generally, by default, the ports do not need to change its value.
+Click “Run current script” and in “Shell”, you can see ESP32-WROOM automatically connects to sketchWiFi. 
 
-Click LISTENING, turn on TCP SERVER's data listening function and wait for ESP32 to connect.
-
-.. image:: ../_static/imgs/5_TCP_IP/Chapter05_12.png
+.. image:: ../_static/imgs/5_TCP_IP/Chapter05_21.png
     :align: center
 
-Compile and upload code to ESP32-WROOM, open the serial monitor and set the baud rate to 115200. ESP32 connects router, obtains IP address and sends access request to server IP address on the same LAN till the connection is successful. When connect successfully, ESP32 can send messages to server.
+If you don't click “Listening” for sketchWiFi, ESP32-WROOM will fail to connect and will print information as follows:
 
-.. image:: ../_static/imgs/5_TCP_IP/Chapter05_13.png
+.. image:: ../_static/imgs/5_TCP_IP/Chapter05_22.png
     :align: center
 
 ESP32 connects with TCP SERVER, and TCP SERVER receives messages from ESP32, as shown in the figure below.
 
-.. image:: ../_static/imgs/5_TCP_IP/Chapter05_14.png
+.. image:: ../_static/imgs/5_TCP_IP/Chapter05_23.png
     :align: center
-
-Sketch_05.1_As_Client
-----------------------------------
 
 The following is the program code:
 
-.. literalinclude:: ../../../freenove_Kit/C/Sketches/Sketch_05.1_WiFiClient/Sketch_05.1_WiFiClient.ino
+.. literalinclude:: ../../../freenove_Kit/Python/Python_Codes/05.1_TCP_as_Client/TCP_as_Client.py
     :linenos: 
-    :language: c
+    :language: python
     :dedent:
 
-Add WiFi function header file.
+Import network、socket、time modules.
 
-.. literalinclude:: ../../../freenove_Kit/C/Sketches/Sketch_05.1_WiFiClient/Sketch_05.1_WiFiClient.ino
+.. literalinclude:: ../../../freenove_Kit/Python/Python_Codes/05.1_TCP_as_Client/TCP_as_Client.py
     :linenos: 
-    :language: c
-    :lines: 7-7
+    :language: python
+    :lines: 1-3
     :dedent:
 
 Enter the actual router name, password, remote server IP address, and port number.
 
-.. literalinclude:: ../../../freenove_Kit/C/Sketches/Sketch_05.1_WiFiClient/Sketch_05.1_WiFiClient.ino
+.. literalinclude:: ../../../freenove_Kit/Python/Python_Codes/05.1_TCP_as_Client/TCP_as_Client.py
     :linenos: 
-    :language: c
-    :lines: 9-12
+    :language: python
+    :lines: 5-8
     :dedent:
 
-Apply for the method class of WiFiClient.
+Connect specified Router until it is successful. 
 
-.. literalinclude:: ../../../freenove_Kit/C/Sketches/Sketch_05.1_WiFiClient/Sketch_05.1_WiFiClient.ino
+.. literalinclude:: ../../../freenove_Kit/Python/Python_Codes/05.1_TCP_as_Client/TCP_as_Client.py
     :linenos: 
-    :language: c
-    :lines: 13-13
+    :language: python
+    :lines: 13-21
     :dedent:
 
-Connect specified WiFi until it is successful. If the name and password of WiFi are correct but it still fails to connect, please push the reset key.
+Send messages to the remote server, receive the messages from it and print them out, and then send the messages back to the server.
 
-.. literalinclude:: ../../../freenove_Kit/C/Sketches/Sketch_05.1_WiFiClient/Sketch_05.1_WiFiClient.ino
+.. literalinclude:: ../../../freenove_Kit/Python/Python_Codes/05.1_TCP_as_Client/TCP_as_Client.py
     :linenos: 
-    :language: c
-    :lines: 19-24
+    :language: python
+    :lines: 23-27
     :dedent:
 
-Send connection request to remote server until connect successfully. When connect successfully, print out the connecting prompt on the serial monitor and send messages to remote server.
+If an exception occurs in the program, for example, the remote server is shut down, execute the following program, turn off the socket function, and disconnect the WiFi.
 
-.. literalinclude:: ../../../freenove_Kit/C/Sketches/Sketch_05.1_WiFiClient/Sketch_05.1_WiFiClient.ino
+.. literalinclude:: ../../../freenove_Kit/Python/Python_Codes/05.1_TCP_as_Client/TCP_as_Client.py
     :linenos: 
-    :language: c
-    :lines: 34-39
-    :dedent:
-
-When ESP32 receive messages from servers, it will print them out via serial port; Users can also send messages to servers from serial port.
-
-.. literalinclude:: ../../../freenove_Kit/C/Sketches/Sketch_05.1_WiFiClient/Sketch_05.1_WiFiClient.ino
-    :linenos: 
-    :language: c
-    :lines: 44-54
-    :dedent:
-
-If the server is disconnected, turn off WiFi of ESP32.
-
-.. literalinclude:: ../../../freenove_Kit/C/Sketches/Sketch_05.1_WiFiClient/Sketch_05.1_WiFiClient.ino
-    :linenos: 
-    :language: c
-    :lines: 55-58
+    :language: python
+    :lines: 39-43
     :dedent:
 
 Reference
-----------------------------
+---------------------------------------
 
-.. py:function:: Class Client	
+.. py:function:: Class socket	
     
-    Every time when using Client, you need to include header file "WiFi.h."
+    Before each use of socket, please add the statement “import socket” to the top of the python file.
     
-    **connect(ip, port, timeout)/connect(*host, port, timeout):** establish a TCP connection.
+    **socket([af, type, proto]):** Create a socket.
     
-        **ip, *host:** ip address of target server 
+    **af:** address
     
-        **port:** port number of target server
+        **socket.AF_INET:** IPv4
     
-        **timeout:** connection timeout
+        **socket.AF_INET6:** IPv6
     
-    **connected():** judge whether client is connecting. If return value is 1, then connect successfully; If return value is 0, then fail to connect.
+    **type:** type
     
-    **stop():** stop tcp connection
+        **socket.SOCK_STREAM  :** TCP stream
     
-    **print():** send data to server connecting to client
+        **socket.SOCK_DGRAM  :** UDP datagram
     
-    **available():** return to the number of bytes readable in receive buffer, if no, return to 0 or -1.
+        **socket.SOCK_RAW     :** Original socket
     
-    **read():** read one byte of data in receive buffer
+        **socket.SO_REUSEADDR :** socket reusable
     
-    **readString():** read string in receive buffer 
+    **proto:** protocol number
+    
+        **socket.IPPROTO_TCP:** TCPmode
+    
+        **socket.IPPROTO_UDP:** UDPmode
+    
+    **socket.setsockopt(level, optname, value):** Set the socket according to the options.
+    
+    **Level:** Level of socket option
+    
+        **socket.SOL_SOCKET:** Level of socket option. By default, it is 4095.
+    
+    **optname:** Options of socket
+    
+        **socket.SO_REUSEADDR:** Allowing a socket interface to be tied to an address that is already in use.
+    
+    **value:** The value can be an integer or a bytes-like object representing a buffer.
+    
+    **socket.connect(address):** To connect to server.
+    
+    **Address:** Tuple or list of the server's address and port number 
+    
+    **send(bytes):** Send data and return the bytes sent. 
+    
+    **recv(bufsize):** Receive data and return a bytes object representing the data received. 
+    
+    **close():** Close socket.
+
+
+To learn more please visit: http://docs.micropython.org/en/latest/
+
 
 Project 5.2 As Server 
 ********************************
@@ -281,103 +297,75 @@ Connect Freenove ESP32 to the computer using the USB cable.
 .. image:: ../_static/imgs/Preface/Preface09.png
     :align: center
 
-Sketch
+Code
 =======================
 
-Before running Sketch, please modify the contents of the box below first. 
+Move the program folder “Freenove_ESP32_WROOM_Board/Python/Python_Codes” to disk(D) in advance with the path of “D:/Micropython_Codes”.
 
-Sketch_05.2_As_Server
---------------------------
+Open “Thonny”, click “This computer”  “D:”  “Micropython_Codes”  “05.2_TCP_as_Server” and double click “TCP_as_Server.py”. 
 
-Compile and upload code to ESP32-WROOM board, open the serial monitor and set the baud rate to 115200. Turn on server mode for ESP32, waiting for the connection of other devices on the same LAN. Once a device connects to server successfully, they can send messages to each other.
+Before clicking “Run current script”, please modify the name and password of your router shown in the box below.
 
-If the ESP32 fails to connect to router, press the reset button as shown below and wait for ESP32 to run again.
+05.2_TCP_as_Server
+-----------------------------
 
-.. image:: ../_static/imgs/5_TCP_IP/Chapter05_15.png
+.. image:: ../_static/imgs/5_TCP_IP/Chapter05_24.png
     :align: center
 
-Serial Monitor
+After making sure that the router's name and password are correct, click “Run current script” and in “Shell”, you can see a server opened by the ESP32- WROVER waiting to connecting to other network devices.
 
-.. image:: ../_static/imgs/5_TCP_IP/Chapter05_16.png
+.. image:: ../_static/imgs/5_TCP_IP/Chapter05_25.png
     :align: center
 
 Processing:
 
-Open the “ **Freenove_ESP32_WROOM_Board\Sketches\Sketches\Sketch_05.2_WiFiServer\sketchWiFi\sketchWiFi.pde** ”.
+Open the “ **Freenove_ESP32_WROOM_Board/Codes/MicroPython_Codes/05.2_TCP_as_Server/sketchWiFi/sketchWiFi.pde** ”.
 
-Based on the messages printed by the serial monitor, enter correct IP address and IP port in Processing to establish connection and make communication.
+Based on the message printed in "Shell", enter the correct IP address and port when processing, and click to establish a connection with ESP32 to communicate.
 
-.. image:: ../_static/imgs/5_TCP_IP/Chapter05_17.png
+.. image:: ../_static/imgs/5_TCP_IP/Chapter05_26.png
+    :align: center
+
+You can enter any information in the “Send Box” of sketchWiFi. Click “Send” and ESP32 will print the received messages to “Shell” and send them back to sketchWiFi.
+
+.. image:: ../_static/imgs/5_TCP_IP/Chapter05_27.png
     :align: center
 
 The following is the program code:
 
-.. literalinclude:: ../../../freenove_Kit/C/Sketches/Sketch_05.2_WiFiServer/Sketch_05.2_WiFiServer.ino
+.. literalinclude:: ../../../freenove_Kit/Python/Python_Codes/05.2_TCP_as_Server/TCP_as_Server.py
     :linenos: 
-    :language: c
+    :language: python
     :dedent:
 
-Apply for method class of WiFiServer.
+Call function connectWifi() to connect to router and obtain the dynamic IP that it assigns to ESP32.
 
-.. literalinclude:: ../../../freenove_Kit/C/Sketches/Sketch_05.2_WiFiServer/Sketch_05.2_WiFiServer.ino
+.. literalinclude:: ../../../freenove_Kit/Python/Python_Codes/05.2_TCP_as_Server/TCP_as_Server.py
     :linenos: 
-    :language: c
-    :lines: 13-13
+    :language: python
+    :lines: 12-13
     :dedent:
 
-Connect specified WiFi until it is successful. If the name and password of WiFi are correct but it still fails to connect, please push the reset key.
+Open the socket server, bind the server to the dynamic IP, and open a data monitoring port.
 
-.. literalinclude:: ../../../freenove_Kit/C/Sketches/Sketch_05.2_WiFiServer/Sketch_05.2_WiFiServer.ino
+.. literalinclude:: ../../../freenove_Kit/Python/Python_Codes/05.2_TCP_as_Server/TCP_as_Server.py
     :linenos: 
-    :language: c
-    :lines: 20-28
+    :language: python
+    :lines: 24-27
     :dedent:
 
-Print out the IP address and port number of ESP32.
+Print the server's IP address and port, monitor the port and wait for the connection of other network devices.
 
-.. literalinclude:: ../../../freenove_Kit/C/Sketches/Sketch_05.2_WiFiServer/Sketch_05.2_WiFiServer.ino
+.. literalinclude:: ../../../freenove_Kit/Python/Python_Codes/05.2_TCP_as_Server/TCP_as_Server.py
     :linenos: 
-    :language: c
-    :lines: 29-31
+    :language: python
+    :lines: 36-46
     :dedent:
 
-Turn on server mode of ESP32, start automatic connection and turn on automatic reconnection.
+If the client is disconnected, close the server and disconnect WiFi.
 
-.. literalinclude:: ../../../freenove_Kit/C/Sketches/Sketch_05.2_WiFiServer/Sketch_05.2_WiFiServer.ino
+.. literalinclude:: ../../../freenove_Kit/Python/Python_Codes/05.2_TCP_as_Server/TCP_as_Server.py
     :linenos: 
-    :language: c
-    :lines: 32-33
+    :language: python
+    :lines: 47-52
     :dedent:
-
-When ESP32 receive messages from servers, it will print them out via serial port; Users can also send messages to servers from serial port.
-
-.. literalinclude:: ../../../freenove_Kit/C/Sketches/Sketch_05.2_WiFiServer/Sketch_05.2_WiFiServer.ino
-    :linenos: 
-    :language: c
-    :lines: 41-48
-    :dedent:
-
-Reference
-----------------------------
-
-.. py:function:: Class Server	
-    
-    Every time use Server functionality, we need to include header file"WiFi.h".
-    
-    **WiFiServer(uint16_t port=80, uint8_t max_clients=4):** create a TCP Server.
-    
-        **port:** ports of Server; range from 0 to 65535 with the default number as 80.
-    
-        **max_clients:** maximum number of clients with default number as 4.
-    
-    **begin(port):** start the TCP Server.
-    
-        **port:** ports of Server; range from 0 to 65535 with the default number as 0.
-    
-    **setNoDelay(bool nodelay):** whether to turn off the delay sending functionality.
-    
-        **nodelay:** true stands for forbidden Nagle algorithm.
-    
-    **close():** close tcp connection.
-    
-    **stop():** stop tcp connection.

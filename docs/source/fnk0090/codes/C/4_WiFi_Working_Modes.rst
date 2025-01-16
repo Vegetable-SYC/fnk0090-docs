@@ -61,7 +61,7 @@ After making sure the router name and password are entered correctly, compile an
 .. image:: ../_static/imgs/4_WiFi_Working_Modes/Chapter04_02.png
     :align: center
 
-When ESP32-WROOM successfully connects to “ssid_Router”, serial monitor will print out the IP address assigned to ESP32-WROOM by the router.
+When ESP32-WROOM successfully connects to "ssid_Router", serial monitor will print out the IP address assigned to ESP32-WROOM by the router.
 
 The following is the program code:
 

@@ -155,9 +155,9 @@ First, download CH340 driver, click http://www.wch-ic.com/search?q=CH340&t=downl
 .. image:: ../_static/imgs/Preface/Preface19.png
     :align: center
 
-If you would not like to download the installation package, you can open “Freenove_ESP32_WROOM_Board/CH340”, we have prepared the installation package.
+If you would not like to download the installation package, you can open "Freenove_ESP32_WROOM_Board/CH340", we have prepared the installation package.
 
-Second, open the folder “Freenove_ESP32_WROOM_Board/CH340/MAC/”
+Second, open the folder "Freenove_ESP32_WROOM_Board/CH340/MAC/"
 
 .. image:: ../_static/imgs/Preface/Preface20.png
     :align: center
@@ -284,7 +284,7 @@ Third, fill in https://espressif.github.io/arduino-esp32/package_esp32_index.jso
     
     if you copy and paste the URL directly, you may lose the "-". Please check carefully to make sure the link is correct.
 
-Fourth, click "Boards Manager". Enter “esp32” in Boards manager, select 2.0.9, and  click “INSTALL”.
+Fourth, click "Boards Manager". Enter "esp32" in Boards manager, select 2.0.9, and  click "INSTALL".
 
 .. image:: ../_static/imgs/Preface/Preface39.png
     :align: center
